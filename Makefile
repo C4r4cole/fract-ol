@@ -6,7 +6,7 @@
 #    By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 11:07:46 by fmoulin           #+#    #+#              #
-#    Updated: 2025/07/22 22:19:38 by fmoulin          ###   ########.fr        #
+#    Updated: 2025/07/24 11:50:29 by fmoulin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME	= fractol
 
 # Fichiers sources
-SRCS	= main.c my_mlx_pxl.c
+SRCS	= main.c my_mlx_pxl.c init.c render.c mapping.c complex_operations.c
 
 # Répertoires
 SRC_DIR	= src

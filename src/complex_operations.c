@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pxl.c                                       :+:      :+:    :+:   */
+/*   complex_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 22:13:43 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/23 16:14:14 by fmoulin          ###   ########.fr       */
+/*   Created: 2025/07/24 11:50:13 by fmoulin           #+#    #+#             */
+/*   Updated: 2025/07/24 12:01:57 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+t_complex	sum_complex(t_complex z1, t_complex z2)
 {
-	char	*dst;
-	int		offset;
-	
-	offset = (y * data->line_length + x * (data->bits_per_pixel / 8));
-	dst = data->addr + offset;
-	*(unsigned int*)dst = color;
+	t_complex	result;
+
+	result.x = z1.x + z2.x;
+	result.y = z1.y + z2.y;
+	return (result);
+}
+
+t_complex	square_complex(t_complex z)
+{
+	t_complex	result;
+
+	result.x = (z.x * z.x) - (z.y * z.y);
+	result.y = 2 * z.x * z.y;
+	return (result);
 }

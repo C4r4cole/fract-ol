@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pxl.c                                       :+:      :+:    :+:   */
+/*   scaling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 22:13:43 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/23 16:14:14 by fmoulin          ###   ########.fr       */
+/*   Created: 2025/07/23 16:56:51 by fmoulin           #+#    #+#             */
+/*   Updated: 2025/07/23 17:22:46 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
 {
-	char	*dst;
-	int		offset;
-	
-	offset = (y * data->line_length + x * (data->bits_per_pixel / 8));
-	dst = data->addr + offset;
-	*(unsigned int*)dst = color;
+	return ((new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min);
 }
