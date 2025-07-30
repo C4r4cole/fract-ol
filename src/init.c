@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 15:46:43 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/24 13:54:32 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/30 18:32:15 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
 	fractal->iterations_definition = 42;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0;
+}
+
+void	events_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, key_handler, fractal);
+	mlx_hook(fractal->mlx_window, ButtonPress, ButtonPressMask, mouse_handler, fractal);
+	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask, close_handler, fractal);
+	// mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, julia_track, fractal);
 }
 
 void fractal_init(t_fractal *fractal)
@@ -45,6 +56,6 @@ void fractal_init(t_fractal *fractal)
 		malloc_error();
 	}
 	fractal->img.addr = mlx_get_data_addr(fractal->img.img, &fractal->img.bits_per_pixel, &fractal->img.line_length, &fractal->img.endian);
-	//events_init(fractal) //TODO
+	events_init(fractal);
 	data_init(fractal);
 }

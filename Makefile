@@ -6,7 +6,7 @@
 #    By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 11:07:46 by fmoulin           #+#    #+#              #
-#    Updated: 2025/07/24 11:50:29 by fmoulin          ###   ########.fr        #
+#    Updated: 2025/07/30 16:06:44 by fmoulin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME	= fractol
 
 # Fichiers sources
-SRCS	= main.c my_mlx_pxl.c init.c render.c mapping.c complex_operations.c
+SRCS	= main.c my_mlx_pxl.c init.c render.c mapping.c complex_operations.c events.c
 
 # Répertoires
 SRC_DIR	= src
@@ -26,7 +26,7 @@ OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 # Compilation
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 IFLAGS = -I$(INC_DIR) -Ilibft -Imlx
 RM = rm -f
 

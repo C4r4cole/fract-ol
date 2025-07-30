@@ -6,11 +6,25 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:19:28 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/24 14:13:48 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:44:20 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+}
 
 void	handle_pixel(int x, int y, t_fractal *fractal)
 {
@@ -19,10 +33,9 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			i;
 	int			color;
 
-	z.x = 0.0;
-	z.y = 0.0;
-	c.x = map(x, -2, +2, 0, WIDTH);
-	c.y = map(y, +2, -2, 0, HEIGHT);
+	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	mandel_vs_julia(&z, &c, fractal);
 	i = 0;
 	while (i < fractal->iterations_definition)
 	{
