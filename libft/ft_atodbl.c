@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:46:47 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/30 17:58:46 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 21:07:41 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ double	ft_atodbl(char *nptr)
 {
 	long	integer_part;
 	double	fractional_part;
-	int	sign;
+	int		sign;
 	double	pow;
 
 	integer_part = 0;

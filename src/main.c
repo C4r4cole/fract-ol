@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:21:14 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/31 18:16:24 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 21:14:25 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 
 // 	// Pour faire mandelbrot, voici la fonction a resoudre
 // 	// f(z) = z^2 + c
-// 	// on dit que la fonction est resolue quand on la derive et que son resultat ne tend pas vers l'infini
+// 	// on dit que la fonction est resolue quand on la derive et
+// 	// que son resultat ne tend pas vers l'infini
 // 	// racine carre de -1 = i donc i^2 = -1
 
 // 	// Formule pour mettre un nombre complexe au carre :
@@ -50,7 +51,7 @@
 int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
-	
+
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
 		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
