@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:58:08 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/30 18:32:01 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 12:46:00 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void		fractal_init(t_fractal *fractal);
 void		data_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
-void		handle_pixel(int x, int y, t_fractal *fractal);
+void	handle_pixel(int x, int y, t_fractal *fractal, int color1, int color2);
 void		malloc_error(void);
 int			main(int argc, char **argv);
 double		map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);

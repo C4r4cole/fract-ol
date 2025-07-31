@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:19:28 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/30 17:44:20 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 13:05:17 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 	}
 }
 
-void	handle_pixel(int x, int y, t_fractal *fractal)
+void	handle_pixel(int x, int y, t_fractal *fractal, int color1, int color2)
 {
 	t_complex	z;
 	t_complex	c;
@@ -43,7 +43,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 		
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, 0, fractal->iterations_definition);
+			color = map(i, color1, color2, 0, fractal->iterations_definition);
 			my_mlx_pixel_put(&fractal->img, x, y, color);
 			return ;
 		}
@@ -56,14 +56,21 @@ void	fractal_render(t_fractal *fractal)
 {
 	int x;
 	int y;
+	int	color1;
+	int	color2;
 
+	color1 = RED;
+	color2 = BLUE;
 	y = -1;
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 		{
-			handle_pixel(x, y, fractal);
+			if (y % 2 == 0)
+				handle_pixel(x, y, fractal, color1, color2);
+			else
+				handle_pixel(x, y, fractal, ++color1, ++color2);
 		}
 	}
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, fractal->img.img, 0, 0);
