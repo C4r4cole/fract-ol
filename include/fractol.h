@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:58:08 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/31 17:40:09 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 18:31:23 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,19 @@
 # include <X11/keysym.h>
 # include "../minilibx-linux/mlx.h"
 
-#define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value 1> <value 2>\"\n"
+#define YELLOW  "\033[33m"
+#define ITALIC  "\033[3m"
+#define RESET   "\033[0m"
+
+#define ERROR_MESSAGE "Please enter as follow : \n\n\t\"./fractol mandelbrot\"\n" \
+                      "\t" YELLOW "or" RESET "\n\t\"./fractol julia <value 1> <value 2>\"\n\n" \
+                      ITALIC "\"<value 1> & <value 2> must be of type double\"" RESET "\n"
 #define WIDTH 800
 #define HEIGHT 800
 
 #define	BLACK	0x000000
-#define WHITE	0xFFFFFF
 #define RED		0xFF0000
-#define	GREEN	0x00FF00
 #define	BLUE	0x0000FF
-
-#define PRUNE_SHADOW        0x4B0F3C  // Couleur principale — violet prune profond, mystérieux
-#define BURNT_ORANGE        0xC1440E  // Accent chaud — orange brûlé intense
-#define LINEN_BEIGE         0xD6C4B0  // Neutre clair — beige grisé naturel
-#define WINE_RED            0x7A1E3A  // Rouge sombre — dramatique, harmonieux avec le prune
-#define MIDNIGHT_VIOLET     0x301934  // Violet bleuté — ombre froide et profonde
-#define VINTAGE_GOLD        0xB28C3B  // Doré désaturé — chaleur vintage et élégance
-#define OLIVE_MOSS          0x6E7351  // Vert olive sourd — contraste terrestre discret
-#define DUSTY_ROSE          0xA67873  // Rose fumé — douceur désaturée, lien chaud/froid
 
 typedef struct	s_img
 {

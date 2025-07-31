@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:21:14 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/30 18:04:39 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/31 18:16:24 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ int	main(int argc, char **argv)
 		fractal.name = argv[1];
 		if (!ft_strncmp(argv[1], "julia", 5))
 		{
+			if (!ft_strrchr(argv[3], '.') || !ft_strrchr(argv[2], '.'))
+			{
+				ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+				exit(EXIT_FAILURE);
+			}
 			fractal.julia_y = (ft_atodbl(argv[3]));
 			fractal.julia_x = (ft_atodbl(argv[2]));
 		}
