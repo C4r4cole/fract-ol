@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 15:46:43 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/31 21:13:04 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/08/01 16:32:08 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
 	fractal->iterations_definition = 42;
-	fractal->shift_x = 0.0;
+	fractal->shift_x = -0.5;
 	fractal->shift_y = 0.0;
-	fractal->zoom = 1.0;
+	fractal->zoom = 0.8;
 }
 
 void	events_init(t_fractal *fractal)
