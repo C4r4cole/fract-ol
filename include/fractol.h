@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:58:08 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/08/01 16:22:41 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/08/01 17:31:31 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 						./fractol mandelbrot\" or\n\
 						./fractol julia <value 1> <value 2>\n\
 						must be of type double\n"
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1080
+# define HEIGHT 1080
 
 # define BLACK	0x000000
 # define RED	0xFF0000
